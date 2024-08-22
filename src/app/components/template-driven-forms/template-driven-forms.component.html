@@ -1,0 +1,85 @@
+<form #form="ngForm" (ngSubmit)="submitForm(form)" >
+  <label>
+    Nome:
+  </label>
+  <input
+    type="text"
+    name="inputName"
+    #name="ngModel"
+    [ngModel]="name.value"
+    required
+  />
+  <p> value: {{ name.value }}</p>
+  <p> value: {{ name.valid }}</p>
+  <p> dirt sujo: {{ name.dirty }}</p>
+  <p> touched : {{ name.touched }}</p>
+
+
+  <label>
+    Feminino:
+  </label>
+  <input
+    type="radio"
+    value="feminino"
+    name="radioSexo"
+    #sexo="ngModel"
+    [ngModel]="sexo.value"
+    required
+  />
+
+  <label>
+    Masculino:
+  </label>
+  <input
+    type="radio"
+    value="masculino"
+    name="radioSexo"
+    #sexo="ngModel"
+    [ngModel]="sexo.value"
+    required
+  />
+
+  <p> value: {{ sexo.value }}</p>
+  <p> value: {{ sexo.valid }}</p>
+  <p> dirt sujo: {{ sexo.dirty }}</p>
+  <p> touched : {{ sexo.touched }}</p>
+
+
+  <label>
+    Angular
+  </label>
+  <input
+    type="checkbox"
+    value="angular"
+    name="checkboxAngular"
+    #angular="ngModel"
+    [ngModel]="angular.value"
+    required
+  />
+
+  <p> value: {{ angular.value }}</p>
+  <p> value: {{ angular.valid }}</p>
+  <p> dirt sujo: {{ angular.dirty }}</p>
+  <p> touched : {{ angular.touched }}</p>
+
+  <select name="selectComidas" #comidas="ngModel" ngModel >
+    <option value="">Selecione um alimento</option>
+    @for(item of listComidas(); track  item) {
+      <option [value]="item.comida" >{{ item.comida }}</option>
+<!--      <option [ngValue]="item" >{{ item.comida }}</option>-->
+    }
+
+  </select>
+
+  <p> value: {{ comidas.value }}</p>
+<!--  <p> value: {{ comidas.value.comida }}</p>-->
+  <p> value: {{ comidas.valid }}</p>
+  <p> value: {{ comidas.touched }}</p>
+
+  <button>send</button>
+  <button [disabled]="!form.valid" >send</button>
+
+</form>
+
+<p> valid: {{ form.valid }}</p>
+<p> value: {{ form.value }}</p>
