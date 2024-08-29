@@ -1,0 +1,7 @@
+<ul>
+  @for(item of getTasks$ | async; track item){
+   <li>{{ item.id }} - {{ item.title }}</li>
+  } @empty {
+    <li>Não existem dados</li>
+  }
+</ul>

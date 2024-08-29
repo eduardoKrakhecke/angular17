@@ -1,1 +1,28 @@
-<p>reative-forms works!</p>
+<form [formGroup]="profileForm" >
+  <label>Nome:</label>
+  <input type="text" formControlName="name" />
+  <p> {{ profileForm.value.name }}</p>
+
+  <div formGroupName="myStacks">
+    <label> front: </label>
+    <input type="text" formControlName="front"/>
+    <p> value: {{ profileForm.value.myStacks?.front }}</p>
+
+  </div>
+
+  <button type="button" (click)="updateName()">Update name</button>
+
+  <label>New food
+    <input #newFood type="text"/>
+  </label>
+
+  <div formArrayName="myFavoriteFoods">
+    @for(food of profileForm.value.myFavoriteFoods; track i; let i = $index){
+      <label>
+        {{ food }}
+        <input type="text" [formControlName]="i" />
+      </label>
+    }
+
+  </div>
+</form>

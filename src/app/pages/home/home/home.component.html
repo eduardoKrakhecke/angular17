@@ -4,5 +4,29 @@
   <hr/>
   <p>Reative forms</p>
   <app-reative-forms/>
+  <hr/>
+  <p>ng-content</p>
+  <app-ng-content>
+    <p text >Texto do ng content</p>
+    <footer class="footer">
+      <p>footer</p>
+    </footer>
+  </app-ng-content>
+  <hr/>
+  <p>Host</p>
+  <app-host/>
+  <hr/>
+
+  <p>ciclos de vida</p>
+  @if(isActive) {
+    <app-ciclos-vida [myNumber]="number"/>
+  }
+
+  <button (click)="isActive = !isActive">Destroy component</button>
+
+  <hr/>
+  <p>Consume service</p>
+  <app-consume-service/>
+
 </div>
 

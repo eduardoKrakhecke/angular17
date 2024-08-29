@@ -7,8 +7,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import localePt from '@angular/common/locales/pt'
 
 import { registerLocaleData } from "@angular/common";
+import { provideHttpClient } from "@angular/common/http";
+
 registerLocaleData(localePt)
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync(),{ provide: LOCALE_ID, useValue: 'pt-BR' }]
+  providers: [
+    provideRouter(routes),
+    provideAnimationsAsync(),
+    provideHttpClient(),
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
+  ]
 };
