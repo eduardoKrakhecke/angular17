@@ -1,7 +1,18 @@
-<ul>
-  @for(item of getTasks$ | async; track item){
-   <li>{{ item.id }} - {{ item.title }}</li>
+@if(getListTask(); as data) {
+  @for(item of data; track item){
+    <li>{{ item.id }} - {{ item.title }}</li>
   } @empty {
     <li>Não existem dados</li>
   }
-</ul>
+} @else {
+  <li>carregando...</li>
+}
+
+<h3> create item</h3>
+<input type="text" #createTitle/>
+<button (click)="taskCreate(createTitle.value)"> create</button>
+
+<h3> update item</h3>
+<input type="text" #updateId/>
+<input type="text" #updateTitle/>
+<button (click)="taskUpdate(updateId.value, updateTitle.value)"> update </button>
